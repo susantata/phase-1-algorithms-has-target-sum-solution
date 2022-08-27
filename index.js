@@ -1,14 +1,29 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seenNumbers = new Set(); // initialize an empty Set
+  for (const number of array) {
+    const complement = target - number;
+
+    // .has returns true if the Set includes the complement
+    if (seenNumbers.has(complement)) return true;
+
+    // .add adds the number to the Set
+    seenNumbers.add(number);
+  }
+  return false;
 }
+
 
 /* 
   Write the Big O time complexity of your function here
 */
-
+// O(log n)
 /* 
   Add your pseudocode here
 */
+// create an empty object
+// iterate through the array trying to find the compliments
+// the complement is stored in our object
+// if compliment is found, returns true
 
 /*
   Add written explanation of your solution here
